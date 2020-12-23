@@ -12,5 +12,5 @@ jobs:
         with:
           event: ${{ toJson(github.event) }}
           job-status: ${{ job.status }}
-          slack-bot-token: ${{ secrets.AHO_SLACK_TOKEN }}
+          slack-bot-token: ${{ secrets.SLACK_TOKEN }}
           channel: proba
