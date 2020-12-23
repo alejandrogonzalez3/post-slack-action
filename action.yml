@@ -11,4 +11,4 @@ inputs:
     description: 'Channel where the messages are sended'
 runs:
   using: 'node12'
-  main: 'slack-action.js'
+  main: 'index.js'
