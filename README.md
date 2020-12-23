@@ -1,8 +1,12 @@
-# Post to Slack javascript action
+# Slack message action
 
 This action send a message to a specific Slack channel. 
 
 ## Inputs
+
+### `event`
+
+**Required** Specify the Git event.
 
 ### `job-status`
 
@@ -25,4 +29,4 @@ This action send a message to a specific Slack channel.
         event: ${{ toJson(github.event) }}
         job-status: ${{ job.status }}
         slack-bot-token: ${{ secrets.AHO_SLACK_TOKEN }}
-        channel: trabenet-notifications
+        channel: proba
