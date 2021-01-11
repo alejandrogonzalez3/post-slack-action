@@ -1,27 +1,19 @@
-# Slack message action
+# GitHub Action: Post Slack Message (Git Event)
 
-This action send a message to a specific Slack channel. 
+This action send a event notification to a specific Slack channel.
 
 ## Inputs
 
-### `event`
+| param            | required | purpose                                       |
+|:-----------------|:---------|-----------------------------------------------|
+|`event`           | ✓        | Event to notify                               |
+|`job-status`      | ✓        | Specifies the final job state                 |
+|`slack-bot-token` | ✓        | Bot token chosen to "write" in the channel    |
+|`channel`         | ✓        | Channel where the message will be sended      |
 
-**Required** Specify the Git event.
+## Usage
 
-### `job-status`
-
-**Required** Specify the final job state.
-
-### `slack-bot-token`
-
-**Required** Bot token chosen to "write" in the channel.
-
-### `channel`
-
-**Required** Channel where the message will be sended.
-
-## Example usage
-
+```
 - name: Slack message Action
     uses: ./ # Uses an action in the root directory
     id: Slack Action
@@ -30,3 +22,4 @@ This action send a message to a specific Slack channel.
         job-status: ${{ job.status }}
         slack-bot-token: ${{ secrets.AHO_SLACK_TOKEN }}
         channel: proba
+```
