@@ -4,6 +4,7 @@ const fetch = require('node-fetch');
 
 try {
   const status = core.getInput("job-status");
+  const jobName = github.context.job;
   
   let branch = github.context.ref.split("/").splice(-1)[0];
   let workflow = github.context.workflow.split("/").splice(-1)[0].replace(".yml", "");
@@ -12,7 +13,7 @@ try {
   let content;
   switch (github.context.eventName) {
     case "push":
-      content = `Push on *${branch}*. \n Commit: ${JSON.parse(eventInfo).head_commit.url}`; 
+      content = `Push on *${branch}*. Job: ${jobName} \n Commit: ${JSON.parse(eventInfo).head_commit.url}`; 
       break;
     case "pull_request":
       content = `Pull Request #${github.context.payload.pull_request.number}: ${github.context.payload.pull_request.html_url}`;
